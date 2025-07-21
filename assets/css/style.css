@@ -43,14 +43,23 @@ a:hover {
     color: var(--c-brand-light);
 }
 
-/* CORRECTED: Ensure all images are responsive and behave correctly */
-img {
-    max-width: 20%;
-    /* Changed from 50% to 100% */
-    height: auto;
-    display: block;
-    /* Prevents extra space below images */
+.testimonials-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* or space-around/space-between */
+    gap: 20px;
+    /* spacing between images */
 }
+
+.testimonials-container img {
+    max-width: 30%;
+    /* roughly 3 per row */
+    height: auto;
+    display: inline-block;
+    /* or block if inside flex */
+}
+
 
 /* CORRECTED: Reduced padding to bring sections closer */
 .section-padding {
@@ -82,11 +91,26 @@ img {
     transform: scale(1.1);
 }
 
-/* Navbar styles */
 .navbar {
+    position: fixed;
+    /* So it stays at top while scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    /* Fixed height */
+    line-height: 60px;
+    /* Vertically center navbar content */
     background-color: #fff;
     box-shadow: var(--box-shadow);
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    /* Vertically center all children */
+    transition: top 0.3s ease;
+    z-index: 9999;
 }
+
 
 .navbar-nav .nav-link {
     font-weight: 500;
@@ -100,6 +124,16 @@ img {
 .navbar-nav .nav-item {
     margin-right: 20px;
 }
+
+.navbar-brand img {
+    max-height: 80px;
+    /* Adjust height as needed */
+    width: auto;
+    /* Maintain aspect ratio */
+}
+
+
+
 
 /* Button styles */
 .btn-brand {
@@ -242,20 +276,6 @@ img {
     text-align: center;
 }
 
-.portfolio-item .iconbox {
-    background-color: var(--c-brand);
-    color: white;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-}
-
-.portfolio-item:hover .iconbox {
-    opacity: 1;
-    top: 50%;
-}
 
 
 .review small {
@@ -334,36 +354,98 @@ img {
 }
 
 
-.footer-top .line {
-    width: 50px;
-    height: 3px;
-    background-color: #f10000;
-    margin-left: 0 !important;
-    margin-right: auto !important;
-    margin-bottom: 1rem;
-    display: block;
+footer {
+    padding-top: 100px;
 }
 
-.footer-top .col-lg-3:first-child {
-    text-align: left !important;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+.footer-top {
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.0S8);
 }
 
-footer.bg-dark,
-footer.bg-dark a,
-footer.bg-dark h5,
-footer.bg-dark p,
-footer.bg-dark ul li {
-    color: #f8f9fa;
+footer li,
+footer p,
+footer a {
+    color: rgba(255, 255, 255, 0.7);
 }
 
-footer.bg-dark a:hover {
-    color: #ddd;
+footer ul {
+    list-style: none;
+    padding: 0;
 }
 
-.footer-top img {
-    max-width: 120px;
-    height: auto;
+footer .line {
+    width: 40px;
+    height: 4px;
+    background-color: var(--c-brand);
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+}
+
+.social-icons a:hover {
+    background-color: var(--c-brand);
+    color: white;
+}
+
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background-color: white;
+        padding: 1rem;
+        /* Optional: add some padding */
+        box-shadow: var(--box-shadow);
+        /* Optional: add shadow for better visibility */
+    }
+}
+
+
+
+@media (max-width: 576px) {
+    #hero h1 {
+        font-size: 2rem;
+    }
+
+    #hero h5 {
+        font-size: 1rem;
+    }
+}
+
+
+html {
+    scroll-padding-top: 70px;
+    /* adjust based on your navbar height */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+@media (max-width: 576px) {
+    [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+}
+
+
+@media (max-width: 576px) {
+    #hero {
+        background: linear-gradient(#000000cc, #000000cc), url(../images/Danvah-Hero2.jpg);
+        background-size: cover;
+        background-position: center;
+    }
 }
