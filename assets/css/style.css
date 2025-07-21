@@ -83,7 +83,7 @@ a:hover {
     position: relative;
 }
 
-.image-zoom-wrapper img {
+.image-zoom-warpper img {
     transition: var(--transition);
 }
 
@@ -217,13 +217,6 @@ a:hover {
     /* You might even consider position: relative; top: -100px; if margin doesn't give enough control */
 }
 
-/* Custom rule to explicitly lift the About content block */
-#ABOUT .row.gy-4 .col-lg-6:last-child {
-    margin-top: -200px !important;
-    /* Adjust this value (e.g., -120px, -150px) */
-}
-
-
 .service {
     position: relative;
     overflow: hidden;
@@ -251,7 +244,7 @@ a:hover {
     z-index: -1;
 }
 
-.servce:hover h5,
+.service:hover h5,
 .service:hover p {
     color: #ffffff;
 }
@@ -360,7 +353,7 @@ footer {
 
 .footer-top {
     padding-bottom: 40px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.0S8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 footer li,
