@@ -736,6 +736,50 @@
         });
 </script>
 
+
+
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggleButtons = [
+      {
+        buttonId: 'toggleMedical',
+        targetId: 'medicalInsurance',
+        showText: 'Show Medical Insurance Packages',
+        hideText: 'Hide Medical Insurance Packages'
+      },
+      {
+        buttonId: 'toggleCar',
+        targetId: 'carInsurance',
+        showText: 'Show Car Insurance Packages',
+        hideText: 'Hide Car Insurance Packages'
+      },
+      {
+        buttonId: 'toggleVessel',
+        targetId: 'vesselInsurance',
+        showText: 'Show Vessel Insurance Packages',
+        hideText: 'Hide Vessel Insurance Packages'
+      }
+    ];
+
+    toggleButtons.forEach(({ buttonId, targetId, showText, hideText }) => {
+      const button = document.getElementById(buttonId);
+      const target = document.getElementById(targetId);
+
+      if (button && target) {
+        // When shown
+        target.addEventListener('shown.bs.collapse', () => {
+          button.textContent = hideText;
+        });
+
+        // When hidden
+        target.addEventListener('hidden.bs.collapse', () => {
+          button.textContent = showText;
+        });
+      }
+    });
+  });
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
